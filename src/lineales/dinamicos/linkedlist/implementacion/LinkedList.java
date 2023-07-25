@@ -65,7 +65,8 @@ public class LinkedList implements ILinkedList {
         aux = head;
         int x;
 
-        if(!(aux.next == null)){
+        if(!(aux.next == null))
+        {
             while(aux.next != null)
             {
                 if(aux.next.next == null)

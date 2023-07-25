@@ -1,15 +1,6 @@
-import lineales.dinamicos.colas.EjecucionColaDin;
-import lineales.dinamicos.colasPrioridad.EjecucionColasPrioDin;
-import lineales.dinamicos.conjuntos.EjecucionConjuntoDin;
-import lineales.dinamicos.diccionarios.EjecucionDiccionarioDin;
 import lineales.dinamicos.linkedlist.EjecucionLinkedList;
-import lineales.dinamicos.pilas.EjecucionPilaDin;
-import lineales.estaticos.colas.EjecucionColaPU;
-import lineales.estaticos.colasPrioridad.EjecucionColasPrioridad;
-import lineales.estaticos.conjuntos.EjecucionConjunto;
-import lineales.estaticos.diccionario.EjecucionDiccionario;
-import lineales.estaticos.pilas.EjecucionPilaTF;
-import nolineales.dinamicos.arboles.ABB.EjecucionABB;
+import nolineales.grafos.EjecucionGrafosLA;
+import nolineales.grafos.EjecucionGrafosMA;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,15 +25,14 @@ public class Main {
         // EjecucionConjuntoDin conjuntoDinamicos = new EjecucionConjuntoDin();
 
         /* --- LINKEDLIST --- */
-        EjecucionLinkedList list = new EjecucionLinkedList();
+        // EjecucionLinkedList list = new EjecucionLinkedList();
 
 
         /* --- ARBOLES --- */
         // EjecucionABB arbolesbinariosbusqueda = new EjecucionABB();
 
         /* --- GRAFOS --- */
-
-
-
+        EjecucionGrafosMA grafosMA = new EjecucionGrafosMA();
+        EjecucionGrafosLA grafosLA = new EjecucionGrafosLA();
     }
 }

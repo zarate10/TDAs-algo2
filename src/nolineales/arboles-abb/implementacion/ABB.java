@@ -1,6 +1,6 @@
-package nolineales.dinamicos.arboles.ABB.implementacion;
+package nolineales.arboles.ABB.implementacion;
 
-import nolineales.dinamicos.arboles.ABB.especificacion.TDAABB;
+import nolineales.arboles.ABB.especificacion.TDAABB;
 
 public class ABB implements TDAABB {
     public class NodoABB {

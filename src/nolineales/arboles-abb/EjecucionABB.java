@@ -1,7 +1,7 @@
-package nolineales.dinamicos.arboles.ABB;
+package nolineales.arboles.ABB;
 
-import nolineales.dinamicos.arboles.ABB.especificacion.TDAABB;
-import nolineales.dinamicos.arboles.ABB.implementacion.ABB;
+import nolineales.arboles.ABB.especificacion.TDAABB;
+import nolineales.arboles.ABB.implementacion.ABB;
 
 public class EjecucionABB {
     public static void preOrder(TDAABB a) {
