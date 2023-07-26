@@ -1,4 +1,4 @@
-package nolineales.arboles.ABB.especificacion;
+package nolineales.arboles.especificacion;
 
 public interface TDAABB {
     void InicializarArbol();

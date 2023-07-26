@@ -1,6 +1,6 @@
-package nolineales.arboles.ABB.implementacion;
+package nolineales.arboles.implementacion;
 
-import nolineales.arboles.ABB.especificacion.TDAABB;
+import nolineales.arboles.especificacion.TDAABB;
 
 public class ABB implements TDAABB {
     public class NodoABB {
@@ -42,7 +42,7 @@ public class ABB implements TDAABB {
 
             raiz.hijoDer = new ABB();
             raiz.hijoDer.InicializarArbol();
-        } else if (raiz.dato > x)
+        } else if (raiz.dato < x)
             raiz.hijoIzq.AgregarElem(x);
         else
             raiz.hijoDer.AgregarElem(x);

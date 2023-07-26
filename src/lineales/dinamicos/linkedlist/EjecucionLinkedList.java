@@ -1,6 +1,7 @@
 package lineales.dinamicos.linkedlist;
 
 import lineales.dinamicos.linkedlist.implementacion.LinkedList;
+import lineales.dinamicos.linkedlist.implementacion.ListaDoblementeEnlazada;
 import lineales.especificacion.ILinkedList;
 
 public class EjecucionLinkedList {
@@ -18,6 +19,7 @@ public class EjecucionLinkedList {
 
     public EjecucionLinkedList()
     {
+        /*
         ILinkedList list = new LinkedList();
         list.add(5);
         list.add(56);
@@ -30,5 +32,16 @@ public class EjecucionLinkedList {
         list.remove(2);
         list.remove(33);
         print(list);
+*/
+        ILinkedList ListaDE = new ListaDoblementeEnlazada();
+
+        ListaDE.add(3);
+        ListaDE.add(6);
+        ListaDE.add(1);
+        ListaDE.add(8);
+        ListaDE.add(2);
+        ListaDE.add(5);
+        ListaDE.add(1);
+
     }
 }
