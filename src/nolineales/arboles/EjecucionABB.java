@@ -1,4 +1,6 @@
 package nolineales.arboles;
+import lineales.especificacion.IConjunto;
+import lineales.estaticos.conjuntos.implementacion.Conjunto;
 import nolineales.arboles.especificacion.TDAABB;
 import nolineales.arboles.implementacion.ABB;
 
@@ -68,14 +70,15 @@ public class EjecucionABB {
     {
         if(!arbol.ArbolVacio())
         {
-            if ((!arbol.HijoDer().ArbolVacio() && arbol.HijoDer().Raiz() == nodo) || (!arbol.HijoIzq().ArbolVacio() && arbol.HijoIzq().Raiz() == nodo))
-                return arbol;
-            else if (nodo < arbol.Raiz())
-                return padreNodoDado(arbol.HijoIzq(), nodo);
-            else
-                return padreNodoDado(arbol.HijoDer(), nodo);
+            return arbol;
         }
-        return arbol;
+
+        if ((!arbol.HijoDer().ArbolVacio() && arbol.HijoDer().Raiz() == nodo) || (!arbol.HijoIzq().ArbolVacio() && arbol.HijoIzq().Raiz() == nodo))
+            return arbol;
+        else if (nodo < arbol.Raiz())
+            return padreNodoDado(arbol.HijoIzq(), nodo);
+        else
+            return padreNodoDado(arbol.HijoDer(), nodo);
     }
 
     public boolean esABB(TDAABB arbol)
@@ -88,7 +91,20 @@ public class EjecucionABB {
 
         return (esABB(arbol.HijoDer()) && esABB(arbol.HijoIzq()));
     }
+/*
+    public IConjunto paresArbol(TDAABB arbol)
+    {
+        IConjunto pares = new Conjunto();
 
+        if (arbol.ArbolVacio())
+            return pares;
+
+        if (arbol.Raiz() % 2 == 0)
+            pares.agregar(arbol.Raiz());
+
+        return paresArbol(arbol.HijoIzq()) + paresArbol(arbol.HijoDer());
+    }
+*/
     public EjecucionABB() {
         TDAABB a = new ABB();
         a.InicializarArbol();
@@ -101,12 +117,11 @@ public class EjecucionABB {
         a.AgregarElem(37);
         a.AgregarElem(43);
 
-
         //System.out.println(altura(a));
 
         // TDAABB raizHijoDer = hijoDerechoNodo(a, 23);
 
-        // System.out.println(padreNodoDado(a, 42).Raiz());
+        System.out.println(padreNodoDado(a, 42).Raiz());
         System.out.println(esABB(a));
     }
 }

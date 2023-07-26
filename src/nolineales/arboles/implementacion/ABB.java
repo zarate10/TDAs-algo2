@@ -42,7 +42,7 @@ public class ABB implements TDAABB {
 
             raiz.hijoDer = new ABB();
             raiz.hijoDer.InicializarArbol();
-        } else if (raiz.dato < x)
+        } else if (raiz.dato > x)
             raiz.hijoIzq.AgregarElem(x);
         else
             raiz.hijoDer.AgregarElem(x);
