@@ -4,6 +4,9 @@ import lineales.estaticos.conjuntos.implementacion.Conjunto;
 import nolineales.arboles.especificacion.TDAABB;
 import nolineales.arboles.implementacion.ABB;
 
+import static lineales.estaticos.conjuntos.EjecucionConjunto.printConjunto;
+import static lineales.estaticos.conjuntos.EjecucionConjunto.unirConjunto;
+
 public class EjecucionABB {
     public static void preOrder(TDAABB a) {
         if (!a.ArbolVacio())
@@ -91,20 +94,45 @@ public class EjecucionABB {
 
         return (esABB(arbol.HijoDer()) && esABB(arbol.HijoIzq()));
     }
-/*
+
+
     public IConjunto paresArbol(TDAABB arbol)
     {
         IConjunto pares = new Conjunto();
+        pares.inicializar();
 
-        if (arbol.ArbolVacio())
-            return pares;
+        if (!arbol.ArbolVacio()) {
+            // Comprobamos si el valor de la raíz del árbol es par y, si lo es, lo agregamos al conjunto.
+            if (arbol.Raiz() % 2 == 0) {
+                pares.agregar(arbol.Raiz());
+            }
 
-        if (arbol.Raiz() % 2 == 0)
-            pares.agregar(arbol.Raiz());
+            // Llamamos recursivamente a la función paresArbol para explorar los hijos del árbol.
+            // El método arbol.HijoIzq() debería devolver el subárbol izquierdo, y arbol.HijoDer() debería devolver el subárbol derecho.
+            unirConjunto(pares, paresArbol(arbol.HijoIzq()));
+            unirConjunto(pares, paresArbol(arbol.HijoDer()));
+        }
 
-        return paresArbol(arbol.HijoIzq()) + paresArbol(arbol.HijoDer());
+        return pares;
     }
-*/
+
+    public IConjunto numerosMayores(TDAABB arbol, int valor)
+    {
+        IConjunto mayores = new Conjunto();
+        mayores.inicializar();
+
+        if (!arbol.ArbolVacio()) {
+            if (arbol.Raiz() > valor) {
+                mayores.agregar(arbol.Raiz());
+            }
+
+            unirConjunto(mayores, numerosMayores(arbol.HijoIzq(), valor));
+            unirConjunto(mayores, numerosMayores(arbol.HijoDer(), valor));
+        }
+
+        return mayores;
+    }
+
     public EjecucionABB() {
         TDAABB a = new ABB();
         a.InicializarArbol();
@@ -121,7 +149,10 @@ public class EjecucionABB {
 
         // TDAABB raizHijoDer = hijoDerechoNodo(a, 23);
 
-        System.out.println(padreNodoDado(a, 42).Raiz());
-        System.out.println(esABB(a));
+        //System.out.println(padreNodoDado(a, 42).Raiz());
+        //System.out.println(esABB(a));
+
+        // printConjunto(paresArbol(a));
+        printConjunto(numerosMayores(a, 42));
     }
 }
